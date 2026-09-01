@@ -1,0 +1,10 @@
+PROJECTCONS
+Sitio estático preparado para Live Server y hosting tradicional.
+
+IMPORTANTE:
+1) El número de WhatsApp de demostración es 526240000000. Cambiarlo en js/config.js y confirmar el teléfono visible/indexable en index.html.
+2) El dominio de ejemplo es https://www.tudominio.com/. Cambiarlo por el dominio real.
+3) Las fotografías incluidas son archivos locales tomados de los materiales proporcionados en el proyecto. Algunas se usan como referencia visual en categorías donde todavía no se proporcionó fotografía específica.
+4) La arquitectura de proyectos está pensada como UNA SOLA PÁGINA con seis categorías verticales y sidebar lateral, evitando crear una página HTML independiente para cada proyecto.
+5) Antes de lanzar, publicar un aviso de privacidad adecuado al negocio y enlazarlo junto al consentimiento del formulario.
+6) El formulario abre WhatsApp con un folio y los datos organizados. Para automatizar recordatorios o guardar prospectos en un CRM se necesita un backend o una integración autorizada.
