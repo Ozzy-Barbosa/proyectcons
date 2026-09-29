@@ -28,7 +28,19 @@ Las pruebas de interacción anteriores usan un DOM simulado. El servidor local y
 - Se ocultó el botón flotante redundante en Inicio para que no cubra fotografía, texto ni controles en pantallas pequeñas. Los contactos principales y el formulario siguen disponibles.
 - Nombre visible y metadatos unificados a **PROYECTCONS**, como el logotipo original; identificadores internos existentes se conservan por compatibilidad.
 
-Movimiento reducido y cambios de tamaño durante una animación cuentan con pruebas de lógica; no se verificaron en un teléfono físico. La publicación de esta nueva entrega se registra cuando se confirme el despliegue.
+Movimiento reducido y cambios de tamaño durante una animación cuentan con pruebas de lógica; no se verificaron en un teléfono físico.
+
+### Publicación Astro confirmada
+
+- Commit de implementación: `a60ea82833a81e92ed0666051f8fe439e37e3be2`.
+- GitHub Pages cambió de publicación de la raíz de `main` a GitHub Actions; HTTPS obligatorio conservado. Solo se publica `dist/`.
+- [Compilación y despliegue 36544644941](https://github.com/Ozzy-Barbosa/proyectcons/actions/runs/36544644941): ambos completados con `success`. Despliegue finalizado el 29 de septiembre de 2026 a las 08:45:07 UTC.
+- `node scripts/check-live.cjs`: las 64 páginas públicas coinciden con la compilación local; Inicio público y CSS/JS coinciden; 66 recursos, incluidas variantes `srcset`, responden HTTP 200. La URL inexistente profunda devuelve la página 404 personalizada.
+- Navegador público: portada nueva con imagen cargada, metadato Astro, enlace a Nosotros y `noindex, follow` confirmados. FAQ mejorado activo: al abrir dos preguntas sucesivamente queda una sola abierta. Sin nuevos errores de consola del sitio público y sin desbordamiento de escritorio.
+- Se retiraron los 62 HTML antiguos de la raíz y sus archivos de publicación generados. Se conservan las fuentes y fotografías originales; las versiones retiradas son recuperables en Git. Astro genera las 64 páginas actuales sin depender de esas copias.
+- URL de revisión: https://ozzy-barbosa.github.io/proyectcons/ . Nosotros: https://ozzy-barbosa.github.io/proyectcons/nosotros.html .
+
+La actualización posterior de este registro es exclusivamente documental y no modifica el artefacto del sitio verificado.
 
 ## Historial: comprobaciones locales de la entrega anterior de 62 páginas
 
