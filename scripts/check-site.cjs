@@ -112,6 +112,15 @@ for (const [file, html] of pages) {
   const aboutLinks = tags(primaryNavigation, 'a').filter(a => localTarget(file, a.href)?.file === (isEnglish ? 'en/nosotros.html' : 'nosotros.html'));
   check(aboutLinks.length === 1 && !aboutLinks[0]?.href.includes('#'), file, 'La navegación debe enlazar a la página independiente Nosotros en el idioma actual');
   if (key === 'nosotros.html') check(aboutLinks[0]?.['aria-current'] === 'page', file, 'Nosotros debe quedar identificado como página actual');
+  if (key === 'nosotros.html') {
+    const bannerMarkup = html.match(/<div\b[^>]*class="about-cover-image"[^>]*>[\s\S]*?<\/div>/)?.[0] || '';
+    const banner = tags(bannerMarkup, 'img')[0];
+    const photos = tags(html, 'img');
+    check(banner?.src?.includes('residencial-04-') && !!banner.alt, file, 'Nosotros debe incluir su fotografía propia de banner y texto alternativo');
+    check(banner?.loading === 'eager' && banner?.fetchpriority === 'high' && banner?.sizes === '100vw', file, 'El banner de Nosotros debe ser prioritario y cubrir el ancho');
+    check(photos.filter(photo => photo.fetchpriority === 'high').length === 1, file, 'Nosotros debe tener una única fotografía prioritaria');
+    check(photos.find(photo => photo.src?.includes('residencial-03-'))?.loading === 'lazy', file, 'La fotografía secundaria de Nosotros debe cargar de forma diferida');
+  }
   check(!links.some(a => a.rel === 'manifest'), file, 'No incluir instalación PWA: el usuario pidió una aplicación web sin instalar');
   check(!/serviceWorker\s*\.\s*register|beforeinstallprompt|data-install-app/i.test(html), file, 'No añadir instalador ni registro de service worker');
   for (const tag of tags(html, '(?:a|link|script|img|source|iframe|video|audio)')) {
