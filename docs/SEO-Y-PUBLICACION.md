@@ -80,3 +80,5 @@ El posicionamiento local también depende de relevancia, distancia y prominencia
 ## Verificación posterior requerida
 
 Registrar commit publicado, estado de Pages, URL funcional y comprobaciones de inicio, servicios, proyectos, una categoría, un detalle, ambos idiomas y página 404. Comprobar recursos sin errores, navegación bajo `/proyectcons/`, alternancia de idiomas, galerías, formulario, noindex de la vista previa y ausencia de datos de plantilla. La aprobación visual y de contenido del cliente sigue siendo un paso separado.
+
+Actualización posterior: Pages quedó publicado y verificado el29de septiembre de2026. El estado inicial sin Pages descrito arriba es histórico. Ver `docs/VERIFICACION.md` para commit, URL y pruebas; la presentación permanece con noindex.

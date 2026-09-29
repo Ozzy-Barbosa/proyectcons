@@ -13,6 +13,8 @@ node scripts/serve.cjs
 
 Vista local: http://127.0.0.1:4173/proyectcons/. También funciona con Live Server.
 
+Después de desplegar: `node scripts/check-live.cjs` comprueba por HTTP las páginas publicadas, recursos y404. Evidencia en `docs/VERIFICACION.md`.
+
 Las páginas HTML son resultados generados: **no editarlas directamente**. El generador conserva URLs estables bajo `/proyectcons/` y crea ambas ediciones.
 
 ## Dónde editar

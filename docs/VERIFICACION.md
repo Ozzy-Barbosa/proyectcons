@@ -20,6 +20,7 @@ Se abrió la presentación local bajo `/proyectcons/`, equivalente a la ruta de 
 - Carrusel: flecha siguiente, quinta miniatura, navegación Inicio por teclado y créditos diferenciados entre portafolio propio/referencia.
 - Formulario español: campos obligatorios y consentimiento rechazan consulta incompleta; resumen incluye folio y enlace codificado al526121363583.
 - CTA de ficha inglesa: conserva idioma, categoría residencial y referencia Sargento—Residence al llegar al formulario; selector conserva ese contexto.
+- Formulario inglés: nombre y teléfono internacional ficticios, consentimiento y resumen completo en inglés; destino526121363583 y referencia conservada. Sin envío.
 - Sin errores de consola observados en la revisión y sin imágenes visibles rotas.
 
 No se envió ningún WhatsApp ni se transmitió una solicitud de prueba. Los valores utilizados fueron ficticios. Swipe, movimiento reducido y fullscreen cuentan con pruebas de lógica; no se probaron en un teléfono físico/iPhone.
@@ -28,4 +29,12 @@ No se envió ningún WhatsApp ni se transmitió una solicitud de prueba. Los val
 
 El sitio es una presentación pública para revisión, no la aprobación comercial definitiva. Mantiene noindex. Pendientes del cliente: catálogo final de servicios, fotografías propias/autorizadas, datos/nombres de fichas, validación del aviso de privacidad, dominio comercial y datos de Perfil de Empresa. El posicionamiento y la indexación de Google no están verificados ni garantizados.
 
-El resultado del despliegue debe comprobarse por separado en la URL pública; las pruebas locales no prueban publicación.
+## Publicación comprobada
+
+- URL pública: https://ozzy-barbosa.github.io/proyectcons/
+- Commit del rediseño: `bdb6452cc8a96d1f1ccc7118f916ad0e5c84f64c`.
+- Pages desde `main` y `/`, HTTPS obligatorio. La API confirmó `status: built` el2026-09-29T08:09:25Z, sin error.
+- Portada pública abierta e inspeccionada en navegador: diseño, fotografía, selector inglés, noindex y destino WhatsApp correctos; sin errores de consola observados.
+- `node scripts/check-live.cjs`:62HTML públicos coinciden byte a byte con las páginas locales normalizando finales de línea;38recursos utilizados devuelven HTTP200. Una URL inexistente profunda devuelve HTTP404 y la página personalizada.
+- Primera consulta concurrente tuvo un error transitorio de red; una comprobación individual devolvió200 y la repetición completa pasó. No se desactivó TLS ni se modificaron certificados.
+- Este registro documenta publicación y funcionamiento; no confirma indexación ni posición en buscadores.
