@@ -167,7 +167,7 @@ async function checkForm(lang, number, clipboardAvailable = true) {
   form.handlers.submit({preventDefault() {}});
   assert.equal(result.hidden, false);
   assert.ok(summary.value.includes('QA: construcción & diseño #1')); assert.ok(summary.value.includes('PC-')); assert.ok(summary.value.includes('QA'));
-  assert.ok(summary.value.startsWith(lang === 'en' ? 'Hello PROJECTCONS' : 'Hola PROJECTCONS'));
+  assert.ok(summary.value.startsWith(lang === 'en' ? 'Hello PROYECTCONS' : 'Hola PROYECTCONS'));
   if (number === '526121363583') {
     assert.equal(send.hidden, false);
     const url = new URL(send.href);

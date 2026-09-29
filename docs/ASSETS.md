@@ -3,7 +3,7 @@
 ## Fuentes
 
 - `assets/images/residencial-*.jpeg`, `industrial-*.jpeg` y `social-*.jpeg`: material proporcionado para el sitio. Conservar los originales. La asignación de fotografías a una obra concreta debe confirmarse con el cliente.
-- `assets/images/ref-*.jpg`: 22 imágenes temporales de terceros. Autores, URLs originales, fecha de consulta y licencia están registrados en `content/visual-references.json`. No representan obras de PROJECTCONS ni desarrollos INFONAVIT; mantener el aviso de imagen ilustrativa y los créditos.
+- `assets/images/ref-*.jpg`: 22 imágenes temporales de terceros. Autores, URLs originales, fecha de consulta y licencia están registrados en `content/visual-references.json`. No representan obras de PROYECTCONS ni desarrollos INFONAVIT; mantener el aviso de imagen ilustrativa y los créditos.
 - `assets/images/logo-proyectcons.png`: logotipo oficial. No se redibuja ni se altera su identidad.
 
 ## Derivados para el sitio

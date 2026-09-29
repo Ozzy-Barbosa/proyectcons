@@ -193,7 +193,7 @@
       leadId = `PC-${new Date().toISOString().slice(0, 10).replaceAll('-', '')}-${random[0].toString(36).slice(-5).toUpperCase().padStart(5, '0')}`;
     }
     const lines = [
-      t('Hola PROJECTCONS, me gustaría conversar sobre mi proyecto.', 'Hello PROJECTCONS, I would like to discuss my project.'),
+      t('Hola PROYECTCONS, me gustaría conversar sobre mi proyecto.', 'Hello PROYECTCONS, I would like to discuss my project.'),
       '', `${t('Folio', 'Reference')}: ${leadId}`,
       `${t('Nombre', 'Name')}: ${valueOf('name')}`,
       `${t('Teléfono', 'Phone')}: ${valueOf('phone')}`,
@@ -205,7 +205,7 @@
     ];
     if (reference) lines.push(`${t('Proyecto de referencia', 'Project of interest')}: ${reference}`);
     if (valueOf('message')) lines.push('', `${t('Sobre mi proyecto', 'About my project')}:`, valueOf('message'));
-    lines.push('', t('Preparado en el sitio web de PROJECTCONS · Español', 'Prepared on the PROJECTCONS website · English'));
+    lines.push('', t('Preparado en el sitio web de PROYECTCONS · Español', 'Prepared on the PROYECTCONS website · English'));
     summary.value = lines.join('\n');
     result.hidden = false;
     if (send) {

@@ -1,14 +1,19 @@
-/* Static release audit. Run after: node scripts/build-pages.cjs */
+/* Audit the actual Astro release. Run after npm run build; optional argument: output directory. */
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-const root = path.resolve(__dirname, '..');
+const projectRoot = path.resolve(__dirname, '..');
+const root = path.resolve(projectRoot, process.argv[2] || process.env.SITE_DIR || 'dist');
+if (!fs.existsSync(root) || !fs.statSync(root).isDirectory()) {
+  console.error(`No existe la salida compilada: ${root}. Ejecuta npm run build antes de auditar.`);
+  process.exit(1);
+}
 const errors = [];
 const fail = (file, message) => errors.push(`${file}: ${message}`);
 const check = (condition, file, message) => { if (!condition) fail(file, message); };
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const walk = dir => fs.readdirSync(dir, {withFileTypes:true}).flatMap(entry =>
-  entry.name.startsWith('.') || ['node_modules', 'tmp', 'test-results'].includes(entry.name) ? [] :
+  entry.name.startsWith('.') || ['node_modules', 'public', 'src', 'tmp', 'test-results'].includes(entry.name) ? [] :
     entry.isDirectory() ? walk(path.join(dir, entry.name)) : [path.join(dir, entry.name)]);
 const files = walk(root).filter(file => file.endsWith('.html')).map(file => path.relative(root, file).replaceAll('\\', '/'));
 const pages = new Map(files.map(file => [file, read(file)]));
@@ -21,15 +26,15 @@ vm.runInNewContext(read('js/config.js'), context);
 const config = context.window.PROJECTCONS_CONFIG;
 const base = new URL(config.domain);
 const publicURL = file => new URL(file === 'index.html' ? '' : file, base).href;
-const catalog = JSON.parse(read('content/catalog.json'));
+const catalog = JSON.parse(fs.readFileSync(path.join(projectRoot, 'content/catalog.json'), 'utf8'));
 const expectedCounts = [5, 6, 2, 4, 4];
-const expectedKeys = ['index.html', 'proyectos.html', 'servicios.html', 'privacidad.html', '404.html'];
+const expectedKeys = ['index.html', 'nosotros.html', 'proyectos.html', 'servicios.html', 'privacidad.html', '404.html'];
 catalog.categories.forEach(cat => {
   expectedKeys.push(`proyectos/${cat.id}/index.html`);
   for (let i = 1; i <= cat.count; i++) expectedKeys.push(`proyectos/${cat.id}/proyecto-${String(i).padStart(2, '0')}.html`);
 });
 const expectedFiles = new Set(expectedKeys.flatMap(file => [file, `en/${file}`]));
-check(files.length === 62, 'sitio', `Se esperaban 62 páginas ES/EN; hay ${files.length}`);
+check(files.length === 64, 'sitio', `Se esperaban 64 páginas ES/EN; hay ${files.length}`);
 check(JSON.stringify(catalog.categories.map(cat => cat.count)) === JSON.stringify(expectedCounts), 'catálogo', 'Las cinco categorías deben conservar 5, 6, 2, 4 y 4 proyectos');
 for (const file of expectedFiles) check(pages.has(file), file, 'Página requerida faltante');
 for (const file of files) check(expectedFiles.has(file), file, 'HTML fuera de la estructura aprobada');
@@ -103,6 +108,12 @@ for (const [file, html] of pages) {
   const languageLinks = tags(html, 'a').filter(a => 'data-language-link' in a);
   check(languageLinks.length === 1, file, 'Debe existir un selector de idioma');
   if (languageLinks[0]) check(localTarget(file, languageLinks[0].href)?.file === equivalent, file, 'Selector de idioma no conserva la página equivalente');
+  const primaryNavigation = html.match(/<nav\b[^>]*class="[^"]*\bsite-nav\b[^>]*>[\s\S]*?<\/nav>/i)?.[0] || '';
+  const aboutLinks = tags(primaryNavigation, 'a').filter(a => localTarget(file, a.href)?.file === (isEnglish ? 'en/nosotros.html' : 'nosotros.html'));
+  check(aboutLinks.length === 1 && !aboutLinks[0]?.href.includes('#'), file, 'La navegación debe enlazar a la página independiente Nosotros en el idioma actual');
+  if (key === 'nosotros.html') check(aboutLinks[0]?.['aria-current'] === 'page', file, 'Nosotros debe quedar identificado como página actual');
+  check(!links.some(a => a.rel === 'manifest'), file, 'No incluir instalación PWA: el usuario pidió una aplicación web sin instalar');
+  check(!/serviceWorker\s*\.\s*register|beforeinstallprompt|data-install-app/i.test(html), file, 'No añadir instalador ni registro de service worker');
   for (const tag of tags(html, '(?:a|link|script|img|source|iframe|video|audio)')) {
     for (const key of ['href', 'src', 'poster']) if (tag[key]) resource(file, tag[key]);
     if (tag.srcset) {
@@ -181,6 +192,14 @@ for (const [file, html] of pages) {
     for (const name of ['category', 'location', 'name', 'phone', 'consent']) check(requiredFields.includes(name), file, `Campo obligatorio faltante: ${name}`);
     for (const label of tags(html, 'label')) if (label.for) check(ids.includes(label.for), file, `Etiqueta de campo sin destino: ${label.for}`);
     check(/<noscript>[\s\S]*wa\.me\/526121363583[\s\S]*<\/noscript>/.test(html), file, 'Falta alternativa de contacto sin JavaScript');
+    const faq = tags(html, 'details').filter(a => a.name);
+    check(faq.length === 5, file, 'Preguntas frecuentes: deben existir cinco respuestas con grupo de apertura exclusiva');
+    check(new Set(faq.map(a => a.name)).size === 1, file, 'Las preguntas deben compartir un grupo exclusivo');
+    check(faq.filter(a => 'open' in a).length <= 1, file, 'Solo una pregunta puede estar abierta inicialmente');
+    check(tags(html, 'summary').length === 5, file, 'Cada pregunta debe conservar un control summary accesible sin JavaScript');
+    check(html.includes('data-faq'), file, 'Falta la conexión del acordeón animado');
+    const heroImages = tags(html, 'img').filter(a => a.fetchpriority === 'high');
+    check(heroImages.length === 1 && /residencial-01/.test(heroImages[0]?.src || ''), file, 'El inicio debe priorizar una única foto propia residencial-01, no imágenes de terceros');
   }
   if (key === '404.html') {
     // Pages serves the root 404 document without changing the originally requested URL.
@@ -207,16 +226,14 @@ for (const file of ['js/config.js', 'js/app.js', 'js/gallery.js', 'robots.txt', 
   const source = read(file).replace(/whatsapp\s*!==\s*(['"])526240000000\1/g, 'whatsapp !== REJECTED_SAMPLE_NUMBER');
   check(![...source.matchAll(placeholder)].length, file, 'Contiene datos de plantilla publicados');
 }
-for (const css of walk(path.join(root, 'css')).filter(file => file.endsWith('.css'))) {
+for (const css of walk(root).filter(file => file.endsWith('.css'))) {
   const file = path.relative(root, css).replaceAll('\\', '/');
   for (const match of read(file).matchAll(/url\(\s*['"]?([^)'"\s]+)['"]?\s*\)/g)) resource(file, match[1]);
 }
-const manifest = JSON.parse(read('site.webmanifest'));
-for (const icon of manifest.icons || []) resource('site.webmanifest', icon.src);
-resource('site.webmanifest', manifest.start_url);
+check(!walk(root).some(file => /(?:^|[/\\])(?:service-worker|sw)\.js$/i.test(file)), 'sitio', 'La salida no debe incluir un service worker');
 if (errors.length) {
   console.error(`${errors.length} error(es):\n${errors.join('\n')}`);
   process.exit(1);
 }
-console.log(`OK: ${files.length} páginas ES/EN; ${galleryCount} galerías y ${galleryImages} fotos; enlaces/recursos/srcset/anclas, idiomas/hreflang/canonical, títulos/IDs/JSON-LD, formularios, contactos y preview noindex verificados.`);
+console.log(`OK (${path.relative(projectRoot, root) || '.'}): ${files.length} páginas ES/EN; ${galleryCount} galerías y ${galleryImages} fotos; enlaces/recursos/srcset/anclas, idiomas/hreflang/canonical, títulos/IDs/JSON-LD, formularios, Nosotros independiente, FAQ exclusivo, contactos y preview noindex verificados.`);
 console.log('Nota: la auditoría lingüística es heurística; no sustituye la revisión editorial ni las pruebas visuales/interactivas en navegador.');

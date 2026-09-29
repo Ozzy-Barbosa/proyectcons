@@ -1,39 +1,50 @@
-# PROJECTCONS · Arquitectura y construcción
+# PROYECTCONS · Arquitectura y construcción
 
-Sitio estático bilingüe, preparado para GitHub Pages. HTML, CSS y JavaScript sin framework ni dependencias en el navegador.
+Aplicación web multipágina con **Astro y TypeScript**, publicada como HTML estático en GitHub Pages. Componentes reutilizables, dos idiomas y JavaScript solo para las interacciones. No es una PWA, no requiere instalación y no tiene panel administrativo.
 
 ## Desarrollo y comprobación
 
 ```sh
-node scripts/build-pages.cjs
-node scripts/check-site.cjs
-node scripts/check-interactions.cjs
+npm ci
+npm run dev
+# Para verificar la versión que se publica:
+npm run verify
+node scripts/check-faq.cjs
 node scripts/serve.cjs
 ```
 
-Vista local: http://127.0.0.1:4173/proyectcons/. También funciona con Live Server.
+Desarrollo: http://127.0.0.1:4321/proyectcons/. Vista de la compilación: http://127.0.0.1:4173/proyectcons/. `serve.cjs` sirve únicamente `dist/`; no utilizar Live Server sobre los archivos de origen.
 
-Después de desplegar: `node scripts/check-live.cjs` comprueba por HTTP las páginas publicadas, recursos y404. Evidencia en `docs/VERIFICACION.md`.
+Después de desplegar: `node scripts/check-live.cjs` compara por HTTP las páginas, CSS y JavaScript publicados con `dist/`, y comprueba imágenes y 404. Evidencia en `docs/VERIFICACION.md`.
 
-Las páginas HTML son resultados generados: **no editarlas directamente**. El generador conserva URLs estables bajo `/proyectcons/` y crea ambas ediciones.
+Las páginas de `dist/` son resultados generados: **no editarlas directamente**. Astro conserva las URLs `.html` existentes bajo `/proyectcons/` y genera ambas ediciones. `scripts/build-pages.cjs` es el adaptador de contenido heredado: exporta las plantillas y los metadatos al proceso de Astro, ya no escribe HTML en la raíz.
 
 ## Dónde editar
 
-- `scripts/build-pages.cjs`: textos ES/EN, plantillas, navegación, banners, servicios, formulario y SEO. `t(es,en)` coloca cada texto en su versión.
+- `src/components/Home.astro`: nueva portada y recorrido del inicio.
+- `src/components/About.astro`: página independiente de Nosotros.
+- `src/components/Faq.astro`: preguntas y respuestas en ambos idiomas.
+- `src/components/ProjectImage.astro`: fotografías propias con tamaños optimizados.
+- `src/layouts/`: estructura global del documento.
+- `src/pages/`: rutas estáticas de Astro; `src/lib/`: datos y adaptación de plantillas existentes para conservar portafolio, servicios, navegación, formulario y SEO.
+- `css/redesign.css`: composición de Inicio, Nosotros y preguntas animadas.
 - `css/styles.css`: sistema visual editorial, responsive, animaciones y movimiento reducido.
 - `js/config.js`: contacto confirmado, URL pública y `preview`.
 - `content/catalog.json`: cinco categorías y 21 fichas. El orden define `proyecto-01.html`, etc.; no reordenar URLs publicadas sin redirecciones.
 - `content/visual-references.json`: fotos de referencia, autores, fuentes y colecciones por categoría.
 - `js/app.js`: menú, idioma, apariciones progresivas y formulario.
 - `js/gallery.js`: carrusel, miniaturas, swipe, teclado, fullscreen y reproducción opcional.
+- `js/faq.js`: acordeón exclusivo, animación de caída y movimiento reducido.
 - `scripts/check-site.cjs`: páginas, metadatos, rutas, imágenes, idiomas y protecciones del contenido provisional.
 - `scripts/check-interactions.cjs`: pruebas de interacciones con DOM simulado; no sustituye la revisión en navegador.
+- `scripts/check-faq.cjs`: apertura exclusiva, cierre, clics rápidos, cambios de tamaño y alternativas sin animación.
 - `docs/ASSETS.md`: imágenes y regeneración WebP.
 - `docs/SEO-Y-PUBLICACION.md`: investigación SEO local y checklist de lanzamiento.
+- `docs/PROMPT-DISENO.md`: prompt reutilizable para la siguiente revisión visual.
 
 ## Ediciones y páginas
 
-Hay 29 páginas de contenido por idioma: inicio, proyectos, servicios, cinco categorías y 21 fichas. Cada edición tiene además privacidad y 404: **62 HTML** en total. La edición inglesa está en `en/`, y el selector enlaza a la misma página del otro idioma. Navegación, formularios, errores, pies, galería y metadatos están traducidos. Esto no constituye una promesa de atención humana en inglés.
+Hay 30 páginas de contenido por idioma: inicio, nosotros, proyectos, servicios, cinco categorías y 21 fichas. Cada edición tiene además privacidad y 404: **64 HTML** en total. La edición inglesa está en `en/`, y el selector enlaza a la misma página del otro idioma. Navegación, formularios, errores, pies, galería y metadatos están traducidos. Esto no constituye una promesa de atención humana en inglés.
 
 ## Fotografías y contenido provisional
 
@@ -53,7 +64,7 @@ No hay automatización CRM: el folio organiza la consulta, pero no crea recordat
 
 ## Publicación de avance y SEO
 
-URL configurada: https://ozzy-barbosa.github.io/proyectcons/. Fuente de Pages: rama `main`, carpeta raíz, `.nojekyll`. Publicar implica regenerar, comprobar, hacer commit/push y verificar el despliegue.
+URL configurada: https://ozzy-barbosa.github.io/proyectcons/. GitHub Actions compila y publica **solo `dist/`**, no la raíz del repositorio. La configuración de Pages debe utilizar GitHub Actions. Publicar implica comprobar, hacer commit/push, esperar el despliegue y verificar la URL pública. Las dependencias se fijan en `package-lock.json`.
 
 `preview: true` mantiene **todas las páginas con noindex**, permite rastrearlas y deja el sitemap vacío. La presentación es pública, no privada. El cliente puede abrirla con el enlace; esta versión de ejemplos no se solicita a Google como portafolio definitivo.
 
@@ -62,3 +73,5 @@ Para producción: confirmar contenidos y dominio comercial, completar fotos/fich
 ## Interacción accesible
 
 Controles de teclado, foco visible, etiquetas, textos alternativos, consentimiento, navegación táctil y preferencia `prefers-reduced-motion`. Carrusel opt-in cada 6.5 segundos; se pausa al navegar manualmente, enfocar controles, ocultar pestaña o salir de la vista. Sin JavaScript se muestran todas las fotografías; el formulario queda inhabilitado con alternativa directa a WhatsApp.
+
+Las preguntas usan `details/summary` nativos y un grupo exclusivo. JavaScript añade transición de altura y caída suave; en movimiento reducido se abren y cierran sin animación. Se mantiene navegación multipágina normal, sin interceptar enlaces ni añadir un enrutador de cliente.

@@ -1,0 +1,27 @@
+---
+import ProjectImage from './ProjectImage.astro';
+interface Props { lang: 'es' | 'en' }
+const { lang } = Astro.props;
+const t = (es: string, en: string) => lang === 'en' ? en : es;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+const route = (file: string) => `${base}${lang === 'en' ? 'en/' : ''}${file}`;
+const pillars = [
+  [t('Tu visión.', 'Your vision.'), t('Cada proyecto parte de una necesidad distinta. Conocer cómo quieres vivir o utilizar tu espacio es el punto de partida.', 'Every project starts with a different need. Understanding how you want to live in or use your space is the starting point.')],
+  [t('Nuestra experiencia.', 'Our experience.'), t('Más de 18 años en el sector de la construcción y más de 60 proyectos respaldan la trayectoria de PROYECTCONS.', 'Over 18 years in construction and more than 60 projects underpin PROYECTCONS’ experience.')],
+  [t('Un proyecto a tu medida.', 'A project of your own.'), t('Terreno, necesidades y presupuesto dan contexto a cada decisión. Conversemos sobre lo que necesitas para ejecutar tu proyecto.', 'Your lot, requirements and budget give context to every decision. Let’s discuss what you need to bring your project to life.')]
+];
+---
+<section class="about-cover section">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label={t('Ruta de navegación', 'Breadcrumb')}><a href={route('index.html')}>{t('Inicio', 'Home')}</a><span aria-hidden="true">/</span><span aria-current="page">{t('Nosotros', 'About')}</span></nav>
+    <div class="about-cover-grid"><div><p class="eyebrow">{t('NOSOTROS / PROYECTCONS', 'ABOUT / PROYECTCONS')}</p><h1>{t('Desde 2008,', 'Since 2008,')}<br />{t('dándole forma', 'shaping')}<br /><span>{t('a lo que sigue.', 'what comes next.')}</span></h1></div><div class="about-cover-note"><span class="about-coordinate" aria-hidden="true">+</span><p>{t('Construcción con raíces en La Paz, Baja California Sur. Experiencia para transformar una idea en un espacio.', 'Construction rooted in La Paz, Baja California Sur. Experience to turn an idea into a space.')}</p><a class="text-link" href="#trayectoria">{t('Nuestra trayectoria', 'Our experience')}<span aria-hidden="true">↓</span></a></div></div>
+  </div>
+</section>
+<section class="about-story section" id="trayectoria">
+  <div class="container about-story-grid">
+    <figure data-reveal><ProjectImage file="residencial-03.jpeg" alt={t('Arquitectura y escalinata de una residencia en proceso de construcción del portafolio de PROYECTCONS', 'Architecture and staircase of a residence under construction from the PROYECTCONS portfolio')} eager sizes="(max-width: 700px) 100vw, 55vw" /><figcaption>{t('PORTAFOLIO PROYECTCONS / ARQUITECTURA RESIDENCIAL', 'PROYECTCONS PORTFOLIO / RESIDENTIAL ARCHITECTURE')}</figcaption></figure>
+    <div class="about-story-copy" data-reveal><p class="eyebrow"><span class="section-number">01</span>{t('CONSTRUIR ES NUESTRA HISTORIA', 'BUILDING IS OUR STORY')}</p><h2>{t('Los espacios cambian.', 'Spaces change.')}<br /><span>{t('La experiencia permanece.', 'Experience stays.')}</span></h2><p class="lead">{t('Somos PROYECTCONS. Desde 2008 consolidamos proyectos en el sector de la construcción.', 'We are PROYECTCONS. We have been bringing construction projects to life since 2008.')}</p><p>{t('Una casa, un espacio comercial o una bodega responden a necesidades distintas. Nuestra trayectoria nos permite partir de lo esencial: entender tu idea, conocer las condiciones de tu proyecto y conversar sobre cómo llevarlo a la obra.', 'A home, a commercial space and a warehouse serve different needs. Our experience lets us start with the essentials: understanding your idea, exploring your project’s conditions and discussing how to build it.')}</p><div class="about-numbers"><div><strong>+18</strong><span>{t('años de experiencia', 'years of experience')}</span></div><div><strong>+60</strong><span>{t('proyectos que nos respaldan', 'projects behind our experience')}</span></div></div></div>
+  </div>
+</section>
+<section class="about-principles section"><div class="container"><div class="work-heading" data-reveal><div><p class="eyebrow"><span class="section-number">02</span>{t('LO QUE NOS CONECTA', 'WHAT BRINGS US TOGETHER')}</p><h2>{t('Tu idea encuentra', 'Your idea meets')}<br /><span>{t('experiencia para construir.', 'the experience to build it.')}</span></h2></div></div><div class="about-pillars">{pillars.map(([title, copy], i) => <article data-reveal><span class="process-index">0{i + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
+<section class="about-next section"><div class="container"><div data-reveal><p class="eyebrow">{t('CONOCE EL TRABAJO DETRÁS DE NUESTRA HISTORIA', 'EXPLORE THE WORK BEHIND OUR STORY')}</p><h2>{t('Ahora, imagina', 'Now, imagine')}<br /><span>{t('tu siguiente espacio.', 'your next space.')}</span></h2></div><div class="about-next-actions"><a class="button" href={route('proyectos.html')}>{t('Explorar proyectos', 'Explore projects')}<span aria-hidden="true">↗</span></a><a class="text-link" href={route('index.html#contacto')}>{t('Hablemos de tu idea', 'Let’s talk about your idea')}<span aria-hidden="true">↗</span></a></div></div></section>

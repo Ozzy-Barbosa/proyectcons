@@ -1,0 +1,70 @@
+---
+import ProjectImage from './ProjectImage.astro';
+import Faq from './Faq.astro';
+interface Props { lang: 'es' | 'en'; formHtml: string }
+const { lang, formHtml } = Astro.props;
+const t = (es: string, en: string) => lang === 'en' ? en : es;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+const route = (file: string) => `${base}${lang === 'en' ? 'en/' : ''}${file}`;
+const steps = [
+  [t('Tu idea, primero.', 'Your idea comes first.'), t('Una casa, un local o un espacio para crecer. Cuéntanos lo que tienes en mente.', 'A home, a business or space to grow. Tell us what you have in mind.')],
+  [t('Pongamos todo en el plano.', 'Let’s put it on the plan.'), t('Revisemos ubicación, terreno, necesidades y el punto en el que está tu proyecto.', 'Let’s review the location, lot, requirements and the current stage of your project.')],
+  [t('Definamos cómo avanzar.', 'Define the way forward.'), t('Conversemos sobre el alcance y la información necesaria para preparar una propuesta.', 'Let’s discuss the scope and the information needed to prepare a proposal.')]
+];
+---
+<section class="home-cover" aria-labelledby="home-title">
+  <div class="cover-frame">
+    <div class="cover-photo"><ProjectImage file="residencial-01.jpeg" alt={t('Fachada de una residencia del portafolio de PROYECTCONS, con muros de concreto, piedra y cactus', 'Facade of a residence from the PROYECTCONS portfolio, with concrete walls, stone and cacti')} eager sizes="100vw" /></div>
+    <div class="cover-grid" aria-hidden="true"></div>
+    <div class="cover-content">
+      <p class="eyebrow"><span class="cover-dot" aria-hidden="true"></span>{t('CONSTRUCTORA EN LA PAZ, B.C.S.', 'CONSTRUCTION COMPANY IN LA PAZ, B.C.S.')}</p>
+      <h1 id="home-title">{t('Aquí empieza', 'Where your')}<br /><span>{t('lo que imaginas.', 'vision takes shape.')}</span></h1>
+      <p class="cover-description">{t('De tu primera idea a la ejecución. Espacios para vivir, trabajar y construir lo que sigue.', 'From your first idea to construction. Spaces to live, work and build what comes next.')}</p>
+      <div class="cover-actions">
+        <a class="button" href="#contacto">{t('Cuéntanos tu proyecto', 'Tell us about your project')}<span aria-hidden="true">↗</span></a>
+        <a class="cover-secondary" href={route('proyectos.html')}>{t('Explorar proyectos', 'Explore projects')}<span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="cover-caption"><span>01 / {t('PORTAFOLIO PROYECTCONS', 'PROYECTCONS PORTFOLIO')}</span><a href={route('proyectos/casas-residenciales/proyecto-01.html')}>{t('Ver esta residencia', 'Explore this residence')}<span aria-hidden="true">↗</span></a></div>
+    <a class="cover-scroll" href="#descubrir" aria-label={t('Descubre PROYECTCONS', 'Discover PROYECTCONS')}><span aria-hidden="true">↓</span></a>
+  </div>
+  <div class="container cover-foundation" aria-label={t('Nuestra trayectoria', 'Our experience')}>
+    <p>{t('EXPERIENCIA QUE', 'EXPERIENCE THAT')}<br /><strong>{t('SE CONSTRUYE.', 'TAKES SHAPE.')}</strong></p>
+    <div><strong>2008</strong><span>{t('Desde entonces,', 'Bringing projects')}<br />{t('consolidando proyectos.', 'to life ever since.')}</span></div>
+    <div><strong>+18</strong><span>{t('años de experiencia', 'years of experience')}<br />{t('en la construcción', 'in construction')}</span></div>
+    <div><strong>+60</strong><span>{t('proyectos', 'projects')}<br />{t('que nos respaldan', 'behind our experience')}</span></div>
+  </div>
+</section>
+
+<section class="home-introduction section" id="descubrir">
+  <div class="container introduction-grid">
+    <div data-reveal><p class="eyebrow"><span class="section-number">01</span>{t('SOMOS PROYECTCONS', 'WE ARE PROYECTCONS')}</p><h2>{t('No es solo construir.', 'More than building.')}<br /><span>{t('Es lo que viene después.', 'It’s what comes next.')}</span></h2></div>
+    <div class="introduction-copy" data-reveal><p class="lead">{t('El lugar donde vas a vivir. El negocio que quieres abrir. La siguiente etapa de tu proyecto.', 'The place you will call home. The business you want to open. The next chapter of your project.')}</p><p>{t('Desde 2008 consolidamos proyectos en el sector de la construcción. Conoce la experiencia detrás de cada espacio y conversemos sobre el tuyo.', 'We have been bringing construction projects to life since 2008. Discover the experience behind our spaces and let’s talk about yours.')}</p><a class="text-link" href={route('nosotros.html')}>{t('Conoce a PROYECTCONS', 'Meet PROYECTCONS')}<span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+
+<section class="home-work section" aria-labelledby="work-title">
+  <div class="container">
+    <div class="work-heading" data-reveal><div><p class="eyebrow"><span class="section-number">02</span>{t('DEL PLANO AL ESPACIO', 'FROM PLANS TO PLACES')}</p><h2 id="work-title">{t('Distintas ideas.', 'Different ideas.')}<br /><span>{t('Espacios con identidad.', 'Spaces with character.')}</span></h2></div><a class="text-link" href={route('proyectos.html')}>{t('Todo el portafolio', 'The full portfolio')}<span aria-hidden="true">↗</span></a></div>
+    <div class="home-projects">
+      <a class="home-project home-project-primary" href={route('proyectos/casas-residenciales/proyecto-01.html')} data-reveal>
+        <div class="home-project-photo"><ProjectImage file="residencial-03.jpeg" alt={t('Escalinata y volúmenes de una residencia en construcción del portafolio de PROYECTCONS', 'Staircase and volumes of a residence under construction from the PROYECTCONS portfolio')} /><span class="photo-link" aria-hidden="true">↗</span></div>
+        <div class="home-project-caption"><div><span class="eyebrow">01 / {t('RESIDENCIAL', 'RESIDENTIAL')}</span><h3>{t('Sargento — Residencia', 'Sargento — Residence')}</h3></div><span>{t('Material propio', 'Our photography')}</span></div>
+      </a>
+      <a class="home-project home-project-secondary" href={route('proyectos/bodegas/proyecto-01.html')} data-reveal>
+        <div class="home-project-photo"><ProjectImage file="industrial-03.jpeg" alt={t('Estructura de CEDIS COMEX del portafolio de PROYECTCONS', 'CEDIS COMEX structure from the PROYECTCONS portfolio')} /><span class="photo-link" aria-hidden="true">↗</span></div>
+        <div class="home-project-caption"><div><span class="eyebrow">02 / INDUSTRIAL</span><h3>CEDIS COMEX</h3></div><span>{t('Material propio', 'Our photography')}</span></div>
+      </a>
+    </div>
+    <div class="work-footnote"><p>{t('Casas, locales, bodegas y proyectos de vivienda. Explora las cinco categorías del portafolio.', 'Homes, commercial spaces, warehouses and housing projects. Explore the five portfolio categories.')}</p><span>{t('LA PAZ · BAJA CALIFORNIA SUR', 'LA PAZ · BAJA CALIFORNIA SUR')}</span></div>
+  </div>
+</section>
+
+<section class="home-process section" id="proceso" aria-labelledby="process-title">
+  <div class="container">
+    <div class="work-heading" data-reveal><div><p class="eyebrow"><span class="section-number">03</span>{t('TU PROYECTO, PASO A PASO', 'YOUR PROJECT, STEP BY STEP')}</p><h2 id="process-title">{t('Una buena conversación.', 'A good conversation.')}<br /><span>{t('El primer trazo.', 'The first line on the plan.')}</span></h2></div><a class="text-link" href={route('servicios.html')}>{t('Explorar servicios', 'Explore services')}<span aria-hidden="true">↗</span></a></div>
+    <ol class="home-process-list">{steps.map(([title, copy], i) => <li data-reveal><span class="process-index">0{i + 1}</span><h3>{title}</h3><p>{copy}</p></li>)}</ol>
+  </div>
+</section>
+<Faq lang={lang} />
+<Fragment set:html={formHtml} />

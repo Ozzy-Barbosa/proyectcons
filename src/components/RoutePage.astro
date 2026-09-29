@@ -1,0 +1,14 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Home from './Home.astro';
+import About from './About.astro';
+import type { SitePage } from '../lib/pages';
+
+interface Props { page: SitePage }
+const { page } = Astro.props;
+---
+<SiteLayout page={page}>
+  {page.key === 'index.html' ? <Home lang={page.lang} formHtml={page.formHtml} />
+    : page.key === 'nosotros.html' ? <About lang={page.lang} />
+    : <Fragment set:html={page.contentHtml} />}
+</SiteLayout>

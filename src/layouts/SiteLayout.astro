@@ -1,0 +1,25 @@
+---
+import type { SitePage } from '../lib/pages';
+
+interface Props { page: SitePage }
+const { page } = Astro.props;
+const asset = (path: string) => `${page.assetPrefix}${path}`;
+---
+<!doctype html>
+<html lang={page.lang === 'es' ? 'es-MX' : 'en'}>
+  <head>
+    <Fragment set:html={page.headHtml} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href={asset('css/redesign.css')} />
+  </head>
+  <body data-page={page.key}>
+    <a class="skip-link" href="#contenido">{page.lang === 'es' ? 'Saltar al contenido' : 'Skip to content'}</a>
+    <Fragment set:html={page.headerHtml} />
+    <main id="contenido"><slot /></main>
+    <Fragment set:html={page.footerHtml} />
+    <script is:inline src={asset('js/config.js')} defer></script>
+    <script is:inline src={asset('js/app.js')} defer></script>
+    {page.gallery && <script is:inline src={asset('js/gallery.js')} defer></script>}
+    {page.key === 'index.html' && <script is:inline src={asset('js/faq.js')} defer></script>}
+  </body>
+</html>

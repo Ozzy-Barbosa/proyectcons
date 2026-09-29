@@ -23,7 +23,7 @@ function referenceProjects(category, index, project) {
   if (project.ready) throw new Error('Una ficha publicada no puede utilizar una galería de ejemplo.');
   const images = [...new Set([...project.images, ...pool.map((_,i)=>pool[(i+index)%pool.length])])].slice(0,5);
   if (images.length < 5) throw new Error('La categoría requiere cinco imágenes distintas: '+category.id);
-  return {...project, reference:true, images, description:project.images.length ? project.description : 'Selección de imágenes ilustrativas para visualizar esta categoría. No corresponde a una obra realizada por PROJECTCONS.'};
+  return {...project, reference:true, images, description:project.images.length ? project.description : 'Selección de imágenes ilustrativas para visualizar esta categoría. No corresponde a una obra realizada por PROYECTCONS.'};
 }
 function servicesPreview(html) {
   let index=0;

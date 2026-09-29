@@ -1,0 +1,21 @@
+{
+  "name": "proyectcons-web",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "dev": "node scripts/prepare-public.cjs && node scripts/astro.cjs dev --host 127.0.0.1",
+    "build": "node scripts/prepare-public.cjs && node scripts/astro.cjs build",
+    "check": "node scripts/astro.cjs check",
+    "preview": "node scripts/astro.cjs preview --host 127.0.0.1 --port 4173",
+    "test": "node scripts/check-site.cjs && node scripts/check-interactions.cjs && node scripts/check-faq.cjs",
+    "verify": "npm run check && npm run build && npm test"
+  },
+  "dependencies": { "astro": "7.3.5" },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@types/node": "^24.0.0",
+    "typescript": "5.9.3"
+  }
+}

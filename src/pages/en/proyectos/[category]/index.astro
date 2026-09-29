@@ -1,0 +1,11 @@
+---
+import type { GetStaticPaths } from 'astro';
+import RoutePage from '../../../../components/RoutePage.astro';
+import { pages, type SitePage } from '../../../../lib/pages';
+export const getStaticPaths = (() => pages.filter(page => page.lang === 'en' && /^proyectos\/[^/]+\/index\.html$/.test(page.key)).map(page => ({
+  params: { category: page.key.split('/')[1] }, props: { page },
+}))) satisfies GetStaticPaths;
+interface Props { page: SitePage }
+const { page } = Astro.props;
+---
+<RoutePage page={page} />

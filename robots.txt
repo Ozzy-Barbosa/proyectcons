@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-# Preview: pages carry noindex until the content is approved.

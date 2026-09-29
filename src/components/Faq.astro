@@ -1,0 +1,28 @@
+---
+interface Props { lang: 'es' | 'en' }
+const { lang } = Astro.props;
+const t = (es: string, en: string) => lang === 'en' ? en : es;
+const items = [
+  [t('Quiero construir mi casa en La Paz. ¿Por dónde empiezo?', 'I want to build a house in La Paz. Where do I start?'), t('Cuéntanos dónde está tu terreno, qué tipo de vivienda imaginas y en qué etapa estás. Si ya tienes planos o referencias, puedes compartirlos por WhatsApp para conversar sobre los siguientes pasos.', 'Tell us where your lot is, what kind of home you have in mind and where you are in the process. If you already have plans or references, share them on WhatsApp to discuss the next steps.')],
+  [t('¿Qué información necesito para solicitar una cotización?', 'What information do I need to request an estimate?'), t('Ubicación, tipo de proyecto, superficie aproximada si la conoces, presupuesto orientativo y fecha deseada. Una cotización requiere revisar el alcance; el formulario no genera un precio automático.', 'Location, project type, approximate floor area if known, indicative budget and preferred timeline. An estimate requires a scope review; the form does not generate an automatic price.')],
+  [t('¿Cuánto cuesta construir en La Paz, BCS?', 'How much does it cost to build in La Paz, BCS?'), t('No hay un precio único. Influyen el terreno, los metros cuadrados, el diseño, los acabados y las condiciones de la obra. Conocer estos datos permite definir una propuesta acorde a tu proyecto.', 'There is no one-size-fits-all price. The lot, floor area, design, finishes and site conditions all matter. Understanding these details helps shape a proposal for your project.')],
+  [t('¿Puedo consultar por un proyecto fuera de La Paz?', 'Can I enquire about a project outside La Paz?'), t('Sí. Indica la ubicación en Baja California Sur al contactarnos. La disponibilidad y el alcance se revisan para cada proyecto.', 'Yes. Include the location in Baja California Sur when you contact us. Availability and scope are reviewed for each project.')],
+  [t('¿Las fotos de ejemplo son obras de PROYECTCONS?', 'Are the example photos PROYECTCONS projects?'), t('No. El material propio se identifica como portafolio de PROYECTCONS. Las fotos marcadas como referencia visual son ejemplos de terceros, utilizados temporalmente mientras se completa la información de cada proyecto.', 'No. Our own photography is labelled as the PROYECTCONS portfolio. Images marked as visual references are third-party examples used temporarily while each project’s information is completed.')]
+];
+---
+<section class="faq-modern section" id="preguntas" aria-labelledby="faq-title">
+  <div class="container faq-modern-grid">
+    <div class="faq-intro" data-reveal>
+      <p class="eyebrow"><span class="section-number">04</span>{t('ANTES DE CONSTRUIR', 'BEFORE YOU BUILD')}</p>
+      <h2 id="faq-title">{t('Buenas preguntas.', 'Good questions.')}<br /><span>{t('Un mejor comienzo.', 'A better beginning.')}</span></h2>
+      <p>{t('Construir en La Paz empieza con información clara. Resolvamos las primeras dudas.', 'Building in La Paz starts with clear information. Let’s answer the first questions.')}</p>
+      <a class="text-link" href="#contacto">{t('Hablemos de tu caso', 'Let’s discuss your project')}<span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="faq-list" data-faq>
+      {items.map(([question, answer], i) => <details name="projectcons-faq" data-faq-item>
+        <summary><span class="faq-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><span class="faq-question">{question}</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-answer"><div><p>{answer}</p></div></div>
+      </details>)}
+    </div>
+  </div>
+</section>

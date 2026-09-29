@@ -1,21 +1,37 @@
-PROJECTCONS — PRESENTACIÓN BILINGÜE
+PROYECTCONS — APLICACIÓN WEB BILINGÜE CON ASTRO + TYPESCRIPT
 
 Contacto confirmado por el usuario: +52 612 136 3583.
 Configuración: js/config.js. URL: https://ozzy-barbosa.github.io/proyectcons/
 
-Cambiar contenido ES/EN en scripts/build-pages.cjs, catálogo en content/catalog.json
-y diseño en css/styles.css. No editar HTML generado directamente.
+Inicio: src/components/Home.astro. Nosotros: src/components/About.astro.
+Preguntas ES/EN: src/components/Faq.astro; interacción: js/faq.js.
+Resto del contenido y estructura: src/lib/. Catálogo: content/catalog.json.
+Diseño: css/redesign.css (inicio/Nosotros/FAQ) y css/styles.css (base).
+No editar HTML generado en dist/ ni publicar la raíz del repositorio.
 
-Después de cambiar contenido:
-  node scripts/build-pages.cjs
-  node scripts/check-site.cjs
-  node scripts/check-interactions.cjs
+Primera instalación (Node.js 24 recomendado para coincidir con GitHub Actions):
+  npm ci
 
-Vista local:
+Desarrollo:
+  npm run dev
+  http://127.0.0.1:4321/proyectcons/
+
+Antes de publicar (tipos, compilación y pruebas):
+  npm run verify
+
+Vista local de los archivos que realmente se publican:
   node scripts/serve.cjs
   http://127.0.0.1:4173/proyectcons/
 
-62 páginas: 29 de contenido + privacidad + 404 por idioma.
+Publicación: .github/workflows/deploy.yml compila y verifica en cada push a main.
+Pages debe tener GitHub Actions como origen. Se despliega únicamente dist/.
+Después del despliegue:
+  node scripts/check-live.cjs
+Este verificador compara HTML, CSS y JS públicos con dist/ y comprueba recursos y 404.
+
+64 páginas: 30 de contenido + privacidad + 404 por idioma.
+Nosotros es una página independiente; se conservan las URLs publicadas.
+Sin PWA, instalación en el dispositivo ni panel administrativo.
 Vista previa pública con noindex; no es un sitio privado.
 Servicios y datos de proyectos siguen pendientes de aprobación.
 Fotografías de referencia identificadas, no presentadas como obras propias.
@@ -25,4 +41,5 @@ El formulario NO envía automáticamente. Prepara resumen/folio y un enlace a Wh
 No hay CRM ni historial automático; no se almacenan datos en el sitio.
 Validar aviso de privacidad definitivo con el responsable del negocio.
 
-Consultar README.md y docs/SEO-Y-PUBLICACION.md antes de pasar a producción.
+Consultar README.md, docs/SEO-Y-PUBLICACION.md y docs/VERIFICACION.md antes de pasar a producción.
+El prompt para otra iteración visual está en docs/PROMPT-DISENO.md.

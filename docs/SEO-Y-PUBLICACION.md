@@ -1,8 +1,10 @@
 # SEO local y preparación de publicación
 
-Auditoría inicial de solo lectura y actualización del rediseño: 29 de septiembre de 2026. El estado de GitHub descrito abajo se comprobó antes de publicar; no constituye una confirmación de despliegue. El verificador estático se actualizó para las 62 páginas ES/EN.
+Actualizado para la migración a Astro y TypeScript: 29 de septiembre de 2026. El proyecto genera 64 páginas ES/EN, incluida la página independiente Nosotros en ambos idiomas. Las pruebas se ejecutan sobre `dist/`, no sobre el código fuente. El estado de publicación de cada entrega se registra por separado en [VERIFICACION.md](VERIFICACION.md).
 
-## Estado de GitHub comprobado
+## Historial de GitHub: auditoría inicial, antes de la primera publicación
+
+Los siguientes datos describen la primera auditoría, no el estado actual del repositorio. Posteriormente se publicó y comprobó la entrega de 62 páginas; ahora la migración requiere publicar el artefacto compilado de Astro.
 
 - Repositorio: `https://github.com/Ozzy-Barbosa/proyectcons`.
 - Público, rama predeterminada `main`; la cuenta conectada `Ozzy-Barbosa` tiene permiso `ADMIN`.
@@ -11,11 +13,20 @@ Auditoría inicial de solo lectura y actualización del rediseño: 29 de septiem
 - URL prevista al activar Pages: `https://ozzy-barbosa.github.io/proyectcons/`. Todavía no estaba activa durante esta auditoría.
 - No se hicieron commits, push, cambios de configuración ni publicación durante esta subtarea.
 
-### Ruta de publicación para el responsable del despliegue
+## Publicación actual: Astro y GitHub Actions
 
-El sitio es estático. Puede publicarse el contenido ya generado desde `main` y la raíz `/`, con `.nojekyll`, o mediante un workflow que compile y empaquete solamente archivos públicos. La ruta de proyecto `/proyectcons/` debe conservarse en enlaces, recursos, canonicals y variantes de idioma.
+La aplicación usa Astro + TypeScript y produce HTML estático. El workflow `.github/workflows/deploy.yml` verifica y compila cada push a `main`, y publica solamente `dist/`. La configuración de Pages debe seleccionar **GitHub Actions**, no `main` y la raíz `/`: los archivos de origen no son una entrega publicable. Se conserva `/proyectcons/` en enlaces, recursos, canonical y variantes de idioma. No se instala una PWA ni se añade un panel administrativo.
 
-La API oficial permite crear Pages indicando la rama y carpeta de origen; la cuenta actual tiene permiso administrativo y alcance `repo`. Primero deben pasar las pruebas y enviarse los archivos al repositorio. Después de activar Pages hay que comprobar el despliegue y las URLs públicas, no solamente aceptar la respuesta de configuración. [GitHub: API de Pages](https://docs.github.com/en/rest/pages/pages), [fuente de publicación](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+Secuencia de entrega:
+
+1. Instalar las dependencias fijadas con `npm ci` y ejecutar `npm run verify`.
+2. Revisar `dist/` en navegador mediante `node scripts/serve.cjs` y probar ambos idiomas.
+3. Confirmar los cambios de contenido y enviar el commit a `main` dentro de una publicación autorizada.
+4. Esperar que el workflow termine con éxito y comprobar el artefacto desplegado en Pages.
+5. Ejecutar `node scripts/check-live.cjs`: compara los 64 HTML y sus CSS/JS con `dist/`, comprueba también variantes de imagen `srcset`, portada pública y 404 profunda.
+6. Revisar visualmente la URL pública y registrar commit, resultado del despliegue y pruebas. Un workflow preparado no equivale a una publicación comprobada.
+
+El uso de un artefacto compilado mediante Actions sigue la [guía oficial de Astro para GitHub Pages](https://docs.astro.build/en/guides/deploy/github/). Para configurar la fuente, consultar [GitHub: fuente de publicación](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
 ## Contactos y afirmaciones pendientes
 
@@ -25,7 +36,9 @@ El usuario sí confirmó más de 18 años en el sector, actividad desde 2008 y m
 
 ## Verificación estática del rediseño
 
-Ejecutar `node scripts/build-pages.cjs` y después `node scripts/check-site.cjs`. La segunda orden audita 62 páginas (29 principales/de portafolio por idioma, privacidad y 404 en ambos), 42 galerías de detalle con cinco fotografías únicas como mínimo, seis fotos de servicios por idioma y banners. También comprueba archivos y variantes `srcset`, anclas, nombres de página únicos, IDs, JSON-LD, pares de idioma y sus enlaces, contacto confirmado, formularios y exclusión de indexación de la vista previa. La detección de texto español en páginas inglesas es una revisión heurística, no una certificación de traducción. La validación visual, interacción y comprobación del despliegue siguen siendo independientes.
+Ejecutar `npm run verify`: revisa tipos, compila Astro y ejecuta pruebas del sitio, formulario/carrusel y acordeón. `node scripts/check-site.cjs` audita específicamente `dist/`: 64 páginas (30 de contenido + privacidad + 404 por idioma), 42 galerías de detalle con cinco archivos distintos como mínimo, seis fotos de servicios por idioma y banners. También comprueba archivos y variantes `srcset`, anclas, nombres de página únicos, IDs, JSON-LD, pares de idioma y sus enlaces, contacto confirmado, formularios, Nosotros independiente, cinco preguntas agrupadas con apertura exclusiva, fotografía propia prioritaria y exclusión de indexación de la vista previa. Las fotografías de referencia se reutilizan entre fichas; no son 210 originales diferentes.
+
+La detección de texto español en páginas inglesas es heurística, no una certificación de traducción. Las pruebas del formulario, carrusel y acordeón usan un DOM simulado; la validación visual, interacción real y comprobación del despliegue siguen siendo independientes.
 
 ## Política de vista previa y salida a producción
 
@@ -41,7 +54,7 @@ Al aprobar la versión comercial:
 
 ## Dos idiomas, no una traducción visual incompleta
 
-Recomendación: páginas HTML separadas en español y `/en/`, enlazadas desde un selector visible que conserve la página equivalente. Traducir navegación, contenido, formulario, errores, pies de foto, avisos, metadatos y textos accesibles; no cambiar de idioma a la fuerza por ubicación.
+Implementación: páginas HTML separadas en español y `/en/`, enlazadas desde un selector visible que conserva la página equivalente. La nueva página Nosotros también tiene su par de idioma. Mantener traducidos navegación, contenido, formulario, errores, pies de foto, avisos, metadatos y textos accesibles; no cambiar de idioma a la fuerza por ubicación.
 
 Cada par debe declarar `hreflang="es-MX"` y `hreflang="en"`, incluirse a sí mismo, apuntar de vuelta a su equivalente y usar URLs absolutas. `x-default` puede apuntar a la versión española elegida como predeterminada. Cada idioma debe tener su propio canonical, no un canonical de inglés hacia español. [Google: sitios multilingües](https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites), [versiones localizadas](https://developers.google.com/search/docs/specialty/international/localized-versions).
 
@@ -81,4 +94,4 @@ El posicionamiento local también depende de relevancia, distancia y prominencia
 
 Registrar commit publicado, estado de Pages, URL funcional y comprobaciones de inicio, servicios, proyectos, una categoría, un detalle, ambos idiomas y página 404. Comprobar recursos sin errores, navegación bajo `/proyectcons/`, alternancia de idiomas, galerías, formulario, noindex de la vista previa y ausencia de datos de plantilla. La aprobación visual y de contenido del cliente sigue siendo un paso separado.
 
-Actualización posterior: Pages quedó publicado y verificado el29de septiembre de2026. El estado inicial sin Pages descrito arriba es histórico. Ver `docs/VERIFICACION.md` para commit, URL y pruebas; la presentación permanece con noindex.
+Historial: la entrega anterior quedó publicada y verificada el 29 de septiembre de 2026. Esto no confirma por sí solo el despliegue de la migración a Astro. Consultar [VERIFICACION.md](VERIFICACION.md) para distinguir ambos resultados; la presentación permanece con noindex.

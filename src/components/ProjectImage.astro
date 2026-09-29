@@ -1,0 +1,16 @@
+---
+import manifest from '../../assets/images/optimized/manifest.json';
+interface Props {
+  file: keyof typeof manifest;
+  alt: string;
+  eager?: boolean;
+  sizes?: string;
+  class?: string;
+}
+const { file, alt, eager = false, sizes = '(max-width: 700px) 100vw, 55vw', class: className } = Astro.props;
+const variants = manifest[file].variants;
+const large = variants[variants.length - 1];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+const src = (name: string) => `${base}assets/images/optimized/${name}`;
+---
+<img class={className} src={src(large.file)} srcset={variants.map(v => `${src(v.file)} ${v.width}w`).join(', ')} sizes={sizes} alt={alt} width={large.width} height={large.height} loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : undefined} />
