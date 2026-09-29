@@ -1,0 +1,9 @@
+{
+  "categories": [
+    {"id":"locales-comerciales","title":"Locales comerciales","count":5,"formValue":"Local Comercial","description":"Espacios pensados para recibir clientes, facilitar la operación y acompañar el crecimiento de cada negocio.","projects":[]},
+    {"id":"casas-residenciales","title":"Casas residenciales","count":6,"formValue":"Casa Residencial","description":"Diseño y construcción de viviendas que combinan funcionalidad, identidad y una relación cuidadosa con su entorno.","projects":[{"name":"Sargento — Residencia","ready":false,"description":"Vistas de fachada y espacios exteriores del proyecto residencial. La ficha completa se encuentra en preparación.","images":["residencial-01.jpeg","residencial-02.jpeg","residencial-03.jpeg"]}]},
+    {"id":"bodegas","title":"Bodegas","count":2,"formValue":"Bodega","description":"Espacios para almacenamiento y operación, con una distribución adecuada a las necesidades de cada actividad.","projects":[{"name":"CEDIS COMEX","ready":false,"description":"Registro de espacios exteriores, interiores y estructura del proyecto. La ficha completa se encuentra en preparación.","images":["industrial-01.jpeg","industrial-02.jpeg","industrial-03.jpeg","industrial-04.jpeg"]}]},
+    {"id":"casas-infonavit","title":"Casas INFONAVIT","count":4,"formValue":"Casas INFONAVIT","description":"Proyectos habitacionales enfocados en las necesidades de cada familia. Consulta el alcance de nuestros servicios y las condiciones aplicables a tu caso.","projects":[]},
+    {"id":"casas-de-interes-social","title":"Casas de interés social","count":4,"formValue":"Casa de Interés Social","description":"Viviendas con distribución eficiente, espacios funcionales y soluciones adaptadas a la vida cotidiana.","projects":[]}
+  ]
+}

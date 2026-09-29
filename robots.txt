@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.tudominio.com/sitemap.xml
+# Preview: pages carry noindex until the content is approved.

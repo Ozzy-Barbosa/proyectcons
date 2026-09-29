@@ -1,10 +1,28 @@
-PROJECTCONS
-Sitio estático preparado para Live Server y hosting tradicional.
+PROJECTCONS — PRESENTACIÓN BILINGÜE
 
-IMPORTANTE:
-1) El número de WhatsApp de demostración es 526240000000. Cambiarlo en js/config.js y confirmar el teléfono visible/indexable en index.html.
-2) El dominio de ejemplo es https://www.tudominio.com/. Cambiarlo por el dominio real.
-3) Las fotografías incluidas son archivos locales tomados de los materiales proporcionados en el proyecto. Algunas se usan como referencia visual en categorías donde todavía no se proporcionó fotografía específica.
-4) La arquitectura de proyectos está pensada como UNA SOLA PÁGINA con seis categorías verticales y sidebar lateral, evitando crear una página HTML independiente para cada proyecto.
-5) Antes de lanzar, publicar un aviso de privacidad adecuado al negocio y enlazarlo junto al consentimiento del formulario.
-6) El formulario abre WhatsApp con un folio y los datos organizados. Para automatizar recordatorios o guardar prospectos en un CRM se necesita un backend o una integración autorizada.
+Contacto confirmado por el usuario: +52 612 136 3583.
+Configuración: js/config.js. URL: https://ozzy-barbosa.github.io/proyectcons/
+
+Cambiar contenido ES/EN en scripts/build-pages.cjs, catálogo en content/catalog.json
+y diseño en css/styles.css. No editar HTML generado directamente.
+
+Después de cambiar contenido:
+  node scripts/build-pages.cjs
+  node scripts/check-site.cjs
+  node scripts/check-interactions.cjs
+
+Vista local:
+  node scripts/serve.cjs
+  http://127.0.0.1:4173/proyectcons/
+
+62 páginas: 29 de contenido + privacidad + 404 por idioma.
+Vista previa pública con noindex; no es un sitio privado.
+Servicios y datos de proyectos siguen pendientes de aprobación.
+Fotografías de referencia identificadas, no presentadas como obras propias.
+Cada galería tiene mínimo 5 fotos; referencias compartidas entre fichas.
+
+El formulario NO envía automáticamente. Prepara resumen/folio y un enlace a WhatsApp.
+No hay CRM ni historial automático; no se almacenan datos en el sitio.
+Validar aviso de privacidad definitivo con el responsable del negocio.
+
+Consultar README.md y docs/SEO-Y-PUBLICACION.md antes de pasar a producción.

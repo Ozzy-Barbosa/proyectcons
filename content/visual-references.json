@@ -1,0 +1,188 @@
+{
+  "notice": "Imágenes ilustrativas de terceros, no obras de PROJECTCONS ni desarrollos INFONAVIT. Uso temporal para revisar diseño.",
+  "license": "https://www.pexels.com/license/",
+  "retrieved": "2026-09-02",
+  "banners": {
+    "proyectos": "ref-residencial-1.jpg",
+    "servicios": "ref-servicio-1.jpg"
+  },
+  "categories": {
+    "locales-comerciales": [
+      "ref-comercial-1.jpg",
+      "ref-comercial-2.jpg",
+      "ref-comercial-3.jpg",
+      "ref-comercial-4.jpg",
+      "ref-comercial-5.jpg"
+    ],
+    "casas-residenciales": [
+      "ref-residencial-1.jpg",
+      "ref-residencial-2.jpg",
+      "ref-residencial-3.jpg",
+      "ref-residencial-4.jpg",
+      "ref-residencial-5.jpg"
+    ],
+    "bodegas": [
+      "ref-bodega-1.jpg",
+      "ref-bodega-2.jpg",
+      "ref-bodega-3.jpg",
+      "ref-bodega-4.jpg",
+      "ref-bodega-5.jpg"
+    ],
+    "casas-infonavit": [
+      "ref-vivienda-1.jpg",
+      "ref-vivienda-2.jpg",
+      "ref-vivienda-3.jpg",
+      "ref-vivienda-4.jpg",
+      "ref-vivienda-5.jpg"
+    ],
+    "casas-de-interes-social": [
+      "ref-vivienda-2.jpg",
+      "ref-vivienda-1.jpg",
+      "ref-vivienda-3.jpg",
+      "ref-vivienda-4.jpg",
+      "ref-vivienda-5.jpg"
+    ]
+  },
+  "services": [
+    "ref-residencial-2.jpg",
+    "ref-comercial-1.jpg",
+    "ref-bodega-1.jpg",
+    "ref-vivienda-1.jpg",
+    "ref-servicio-2.jpg",
+    "ref-servicio-1.jpg"
+  ],
+  "photos": {
+    "ref-residencial-1.jpg": {
+      "author": "Max Vakhtbovych",
+      "source": "https://www.pexels.com/photo/modern-house-exterior-design-8134821/",
+      "download": "https://images.pexels.com/photos/8134821/pexels-photo-8134821.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80",
+      "alt": "Casa contemporánea con terraza y jardín"
+    },
+    "ref-residencial-2.jpg": {
+      "author": "Bilal Mansuri",
+      "source": "https://www.pexels.com/photo/concrete-house-12713155/",
+      "download": "https://images.pexels.com/photos/12713155/pexels-photo-12713155.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80",
+      "alt": "Visualización de arquitectura residencial de concreto"
+    },
+    "ref-comercial-1.jpg": {
+      "author": "Mathias Reding",
+      "source": "https://www.pexels.com/photo/photo-of-windows-in-a-store-9784184/",
+      "download": "https://images.pexels.com/photos/9784184/pexels-photo-9784184.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80",
+      "alt": "Fachada acristalada de un local comercial"
+    },
+    "ref-comercial-2.jpg": {
+      "author": "Kriss L",
+      "source": "https://www.pexels.com/photo/chic-clothing-storefront-with-modern-design-32549949/",
+      "download": "https://images.pexels.com/photos/32549949/pexels-photo-32549949.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80",
+      "alt": "Interior de un establecimiento comercial"
+    },
+    "ref-bodega-1.jpg": {
+      "author": "imeenhae",
+      "source": "https://www.pexels.com/photo/photo-of-warehouse-4277794/",
+      "download": "https://images.pexels.com/photos/4277794/pexels-photo-4277794.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80",
+      "alt": "Pasillo y estanterías de una bodega"
+    },
+    "ref-bodega-2.jpg": {
+      "author": "Ricky Esquivel",
+      "source": "https://www.pexels.com/photo/an-empty-warehouse-5843172/",
+      "download": "https://images.pexels.com/photos/5843172/pexels-photo-5843172.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80",
+      "alt": "Estructura interior de una nave"
+    },
+    "ref-vivienda-1.jpg": {
+      "author": "AJ Ahamad",
+      "source": "https://www.pexels.com/photo/modern-suburban-houses-on-a-sunny-day-34188578/",
+      "download": "https://images.pexels.com/photos/34188578/pexels-photo-34188578.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80",
+      "alt": "Conjunto de viviendas: referencia habitacional"
+    },
+    "ref-vivienda-2.jpg": {
+      "author": "Yazan Alhaija",
+      "source": "https://www.pexels.com/photo/symmetrical-row-of-modern-houses-on-cloudy-day-35505660/",
+      "download": "https://images.pexels.com/photos/35505660/pexels-photo-35505660.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80",
+      "alt": "Viviendas adosadas: referencia habitacional"
+    },
+    "ref-servicio-1.jpg": {
+      "author": "Maren Ferraro",
+      "source": "https://www.pexels.com/photo/architects-reviewing-construction-blueprints-outdoors-29299826/",
+      "download": "https://images.pexels.com/photos/29299826/pexels-photo-29299826.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80",
+      "alt": "Revisión de planos en obra"
+    },
+    "ref-servicio-2.jpg": {
+      "author": "Tima Miroshnichenko",
+      "source": "https://www.pexels.com/photo/city-person-people-art-6615237/",
+      "download": "https://images.pexels.com/photos/6615237/pexels-photo-6615237.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80",
+      "alt": "Planeación y diseño arquitectónico"
+    },
+    "ref-comercial-3.jpg": {
+      "author": "Daniel Maurício Bertoli",
+      "source": "https://www.pexels.com/photo/modern-retail-store-interior-design-31318437/",
+      "download": "https://images.pexels.com/photos/31318437/pexels-photo-31318437.jpeg?auto=compress&cs=tinysrgb&w=1400&q=75",
+      "alt": "Interior comercial con exhibidores"
+    },
+    "ref-comercial-4.jpg": {
+      "author": "Ushindi Namegabe",
+      "source": "https://www.pexels.com/photo/store-interior-16176573/",
+      "download": "https://images.pexels.com/photos/16176573/pexels-photo-16176573.jpeg?auto=compress&cs=tinysrgb&w=1400&q=75",
+      "alt": "Interior de una tienda"
+    },
+    "ref-comercial-5.jpg": {
+      "author": "Ana Sofía Bustamante",
+      "source": "https://www.pexels.com/photo/store-interior-design-11374715/",
+      "download": "https://images.pexels.com/photos/11374715/pexels-photo-11374715.jpeg?auto=compress&cs=tinysrgb&w=1400&q=75",
+      "alt": "Diseño interior de un local comercial"
+    },
+    "ref-residencial-3.jpg": {
+      "author": "Max Vakhtbovych",
+      "source": "https://www.pexels.com/photo/modern-house-exterior-7587880/",
+      "download": "https://images.pexels.com/photos/7587880/pexels-photo-7587880.jpeg?auto=compress&cs=tinysrgb&w=1400&q=75",
+      "alt": "Casa contemporánea con terraza"
+    },
+    "ref-residencial-4.jpg": {
+      "author": "Max Vakhtbovych",
+      "source": "https://www.pexels.com/photo/modern-minimalist-house-exterior-design-8134820/",
+      "download": "https://images.pexels.com/photos/8134820/pexels-photo-8134820.jpeg?auto=compress&cs=tinysrgb&w=1400&q=75",
+      "alt": "Fachada residencial minimalista"
+    },
+    "ref-residencial-5.jpg": {
+      "author": "alleksana",
+      "source": "https://www.pexels.com/photo/modern-house-facade-10610731/",
+      "download": "https://images.pexels.com/photos/10610731/pexels-photo-10610731.jpeg?auto=compress&cs=tinysrgb&w=1400&q=75",
+      "alt": "Fachada de una residencia moderna"
+    },
+    "ref-bodega-3.jpg": {
+      "author": "Adrien Olichon",
+      "source": "https://www.pexels.com/photo/industrial-storage-warehouse-interior-view-36126305/",
+      "download": "https://images.pexels.com/photos/36126305/pexels-photo-36126305.jpeg?auto=compress&cs=tinysrgb&w=1400&q=75",
+      "alt": "Interior de un almacén industrial"
+    },
+    "ref-bodega-4.jpg": {
+      "author": "iam luisao",
+      "source": "https://www.pexels.com/photo/interior-of-a-warehouse-12706241/",
+      "download": "https://images.pexels.com/photos/12706241/pexels-photo-12706241.jpeg?auto=compress&cs=tinysrgb&w=1400&q=75",
+      "alt": "Interior de una nave de almacenamiento"
+    },
+    "ref-bodega-5.jpg": {
+      "author": "Craftsman Concrete Floors",
+      "source": "https://www.pexels.com/photo/modern-industrial-warehouse-interior-in-houston-36230768/",
+      "download": "https://images.pexels.com/photos/36230768/pexels-photo-36230768.jpeg?auto=compress&cs=tinysrgb&w=1400&q=75",
+      "alt": "Nave industrial con piso de concreto"
+    },
+    "ref-vivienda-3.jpg": {
+      "author": "Jan van der Wolf",
+      "source": "https://www.pexels.com/photo/row-of-houses-on-a-street-15524090/",
+      "download": "https://images.pexels.com/photos/15524090/pexels-photo-15524090.jpeg?auto=compress&cs=tinysrgb&w=1400&q=75",
+      "alt": "Conjunto de viviendas adosadas"
+    },
+    "ref-vivienda-4.jpg": {
+      "author": "Nick Adams",
+      "source": "https://www.pexels.com/photo/drone-shot-of-rows-of-houses-12569259/",
+      "download": "https://images.pexels.com/photos/12569259/pexels-photo-12569259.jpeg?auto=compress&cs=tinysrgb&w=1400&q=75",
+      "alt": "Vista aérea de un barrio residencial"
+    },
+    "ref-vivienda-5.jpg": {
+      "author": "Erik Mclean",
+      "source": "https://www.pexels.com/photo/typical-residential-house-on-street-of-town-7434644/",
+      "download": "https://images.pexels.com/photos/7434644/pexels-photo-7434644.jpeg?auto=compress&cs=tinysrgb&w=1400&q=75",
+      "alt": "Viviendas urbanas en una calle residencial"
+    }
+  }
+}

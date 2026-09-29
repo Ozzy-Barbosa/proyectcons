@@ -1,0 +1,667 @@
+{
+  "industrial-01.jpeg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 175372,
+    "variants": [
+      {
+        "file": "industrial-01-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 42706
+      },
+      {
+        "file": "industrial-01-1440.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 133706
+      }
+    ]
+  },
+  "industrial-02.jpeg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 167291,
+    "variants": [
+      {
+        "file": "industrial-02-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 46186
+      },
+      {
+        "file": "industrial-02-1440.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 125242
+      }
+    ]
+  },
+  "industrial-03.jpeg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 145838,
+    "variants": [
+      {
+        "file": "industrial-03-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 36962
+      },
+      {
+        "file": "industrial-03-1440.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 100334
+      }
+    ]
+  },
+  "industrial-04.jpeg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 142369,
+    "variants": [
+      {
+        "file": "industrial-04-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 36782
+      },
+      {
+        "file": "industrial-04-1440.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 100160
+      }
+    ]
+  },
+  "logo-proyectcons.png": {
+    "width": 1373,
+    "height": 372,
+    "bytes": 198018,
+    "variants": [
+      {
+        "file": "logo-proyectcons-640.webp",
+        "width": 640,
+        "height": 173,
+        "bytes": 46340
+      },
+      {
+        "file": "logo-proyectcons-1440.webp",
+        "width": 1373,
+        "height": 372,
+        "bytes": 90634
+      }
+    ]
+  },
+  "ref-bodega-1.jpg": {
+    "width": 1600,
+    "height": 2133,
+    "bytes": 980578,
+    "variants": [
+      {
+        "file": "ref-bodega-1-640.webp",
+        "width": 640,
+        "height": 853,
+        "bytes": 130148
+      },
+      {
+        "file": "ref-bodega-1-1440.webp",
+        "width": 1440,
+        "height": 1920,
+        "bytes": 712334
+      }
+    ]
+  },
+  "ref-bodega-2.jpg": {
+    "width": 1600,
+    "height": 2400,
+    "bytes": 301117,
+    "variants": [
+      {
+        "file": "ref-bodega-2-640.webp",
+        "width": 640,
+        "height": 960,
+        "bytes": 28578
+      },
+      {
+        "file": "ref-bodega-2-1440.webp",
+        "width": 1440,
+        "height": 2160,
+        "bytes": 104682
+      }
+    ]
+  },
+  "ref-bodega-3.jpg": {
+    "width": 1400,
+    "height": 932,
+    "bytes": 216271,
+    "variants": [
+      {
+        "file": "ref-bodega-3-640.webp",
+        "width": 640,
+        "height": 426,
+        "bytes": 41936
+      },
+      {
+        "file": "ref-bodega-3-1440.webp",
+        "width": 1400,
+        "height": 932,
+        "bytes": 145480
+      }
+    ]
+  },
+  "ref-bodega-4.jpg": {
+    "width": 1400,
+    "height": 933,
+    "bytes": 330296,
+    "variants": [
+      {
+        "file": "ref-bodega-4-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 78876
+      },
+      {
+        "file": "ref-bodega-4-1440.webp",
+        "width": 1400,
+        "height": 933,
+        "bytes": 255470
+      }
+    ]
+  },
+  "ref-bodega-5.jpg": {
+    "width": 1400,
+    "height": 933,
+    "bytes": 297493,
+    "variants": [
+      {
+        "file": "ref-bodega-5-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 56318
+      },
+      {
+        "file": "ref-bodega-5-1440.webp",
+        "width": 1400,
+        "height": 933,
+        "bytes": 233464
+      }
+    ]
+  },
+  "ref-comercial-1.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "bytes": 278598,
+    "variants": [
+      {
+        "file": "ref-comercial-1-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 29324
+      },
+      {
+        "file": "ref-comercial-1-1440.webp",
+        "width": 1440,
+        "height": 960,
+        "bytes": 137374
+      }
+    ]
+  },
+  "ref-comercial-2.jpg": {
+    "width": 1600,
+    "height": 2397,
+    "bytes": 330999,
+    "variants": [
+      {
+        "file": "ref-comercial-2-640.webp",
+        "width": 640,
+        "height": 959,
+        "bytes": 51572
+      },
+      {
+        "file": "ref-comercial-2-1440.webp",
+        "width": 1440,
+        "height": 2157,
+        "bytes": 132886
+      }
+    ]
+  },
+  "ref-comercial-3.jpg": {
+    "width": 1400,
+    "height": 1867,
+    "bytes": 515362,
+    "variants": [
+      {
+        "file": "ref-comercial-3-640.webp",
+        "width": 640,
+        "height": 853,
+        "bytes": 95784
+      },
+      {
+        "file": "ref-comercial-3-1440.webp",
+        "width": 1400,
+        "height": 1867,
+        "bytes": 391712
+      }
+    ]
+  },
+  "ref-comercial-4.jpg": {
+    "width": 1400,
+    "height": 2100,
+    "bytes": 180478,
+    "variants": [
+      {
+        "file": "ref-comercial-4-640.webp",
+        "width": 640,
+        "height": 960,
+        "bytes": 27948
+      },
+      {
+        "file": "ref-comercial-4-1440.webp",
+        "width": 1400,
+        "height": 2100,
+        "bytes": 84062
+      }
+    ]
+  },
+  "ref-comercial-5.jpg": {
+    "width": 1400,
+    "height": 1867,
+    "bytes": 316132,
+    "variants": [
+      {
+        "file": "ref-comercial-5-640.webp",
+        "width": 640,
+        "height": 853,
+        "bytes": 57932
+      },
+      {
+        "file": "ref-comercial-5-1440.webp",
+        "width": 1400,
+        "height": 1867,
+        "bytes": 189670
+      }
+    ]
+  },
+  "ref-residencial-1.jpg": {
+    "width": 1600,
+    "height": 1068,
+    "bytes": 202021,
+    "variants": [
+      {
+        "file": "ref-residencial-1-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 26032
+      },
+      {
+        "file": "ref-residencial-1-1440.webp",
+        "width": 1440,
+        "height": 961,
+        "bytes": 95926
+      }
+    ]
+  },
+  "ref-residencial-2.jpg": {
+    "width": 1600,
+    "height": 2000,
+    "bytes": 799352,
+    "variants": [
+      {
+        "file": "ref-residencial-2-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 127588
+      },
+      {
+        "file": "ref-residencial-2-1440.webp",
+        "width": 1440,
+        "height": 1800,
+        "bytes": 553800
+      }
+    ]
+  },
+  "ref-residencial-3.jpg": {
+    "width": 1400,
+    "height": 934,
+    "bytes": 364049,
+    "variants": [
+      {
+        "file": "ref-residencial-3-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 68700
+      },
+      {
+        "file": "ref-residencial-3-1440.webp",
+        "width": 1400,
+        "height": 934,
+        "bytes": 326292
+      }
+    ]
+  },
+  "ref-residencial-4.jpg": {
+    "width": 1400,
+    "height": 934,
+    "bytes": 184824,
+    "variants": [
+      {
+        "file": "ref-residencial-4-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 34066
+      },
+      {
+        "file": "ref-residencial-4-1440.webp",
+        "width": 1400,
+        "height": 934,
+        "bytes": 118766
+      }
+    ]
+  },
+  "ref-residencial-5.jpg": {
+    "width": 1400,
+    "height": 933,
+    "bytes": 223908,
+    "variants": [
+      {
+        "file": "ref-residencial-5-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 39906
+      },
+      {
+        "file": "ref-residencial-5-1440.webp",
+        "width": 1400,
+        "height": 933,
+        "bytes": 170472
+      }
+    ]
+  },
+  "ref-servicio-1.jpg": {
+    "width": 1600,
+    "height": 2133,
+    "bytes": 253124,
+    "variants": [
+      {
+        "file": "ref-servicio-1-640.webp",
+        "width": 640,
+        "height": 853,
+        "bytes": 33478
+      },
+      {
+        "file": "ref-servicio-1-1440.webp",
+        "width": 1440,
+        "height": 1920,
+        "bytes": 107714
+      }
+    ]
+  },
+  "ref-servicio-2.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "bytes": 120355,
+    "variants": [
+      {
+        "file": "ref-servicio-2-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 14210
+      },
+      {
+        "file": "ref-servicio-2-1440.webp",
+        "width": 1440,
+        "height": 960,
+        "bytes": 55238
+      }
+    ]
+  },
+  "ref-vivienda-1.jpg": {
+    "width": 1600,
+    "height": 900,
+    "bytes": 183579,
+    "variants": [
+      {
+        "file": "ref-vivienda-1-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 25824
+      },
+      {
+        "file": "ref-vivienda-1-1440.webp",
+        "width": 1440,
+        "height": 810,
+        "bytes": 98680
+      }
+    ]
+  },
+  "ref-vivienda-2.jpg": {
+    "width": 1600,
+    "height": 2925,
+    "bytes": 549452,
+    "variants": [
+      {
+        "file": "ref-vivienda-2-640.webp",
+        "width": 640,
+        "height": 1170,
+        "bytes": 80430
+      },
+      {
+        "file": "ref-vivienda-2-1440.webp",
+        "width": 1440,
+        "height": 2633,
+        "bytes": 312434
+      }
+    ]
+  },
+  "ref-vivienda-3.jpg": {
+    "width": 1400,
+    "height": 933,
+    "bytes": 238185,
+    "variants": [
+      {
+        "file": "ref-vivienda-3-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 46864
+      },
+      {
+        "file": "ref-vivienda-3-1440.webp",
+        "width": 1400,
+        "height": 933,
+        "bytes": 160452
+      }
+    ]
+  },
+  "ref-vivienda-4.jpg": {
+    "width": 1400,
+    "height": 933,
+    "bytes": 289860,
+    "variants": [
+      {
+        "file": "ref-vivienda-4-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 60328
+      },
+      {
+        "file": "ref-vivienda-4-1440.webp",
+        "width": 1400,
+        "height": 933,
+        "bytes": 233094
+      }
+    ]
+  },
+  "ref-vivienda-5.jpg": {
+    "width": 1400,
+    "height": 933,
+    "bytes": 266532,
+    "variants": [
+      {
+        "file": "ref-vivienda-5-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 53180
+      },
+      {
+        "file": "ref-vivienda-5-1440.webp",
+        "width": 1400,
+        "height": 933,
+        "bytes": 174662
+      }
+    ]
+  },
+  "residencial-01.jpeg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 140705,
+    "variants": [
+      {
+        "file": "residencial-01-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 32508
+      },
+      {
+        "file": "residencial-01-1440.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 115410
+      }
+    ]
+  },
+  "residencial-02.jpeg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 185144,
+    "variants": [
+      {
+        "file": "residencial-02-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 49248
+      },
+      {
+        "file": "residencial-02-1440.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 174944
+      }
+    ]
+  },
+  "residencial-03.jpeg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 108189,
+    "variants": [
+      {
+        "file": "residencial-03-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 23198
+      },
+      {
+        "file": "residencial-03-1440.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 78148
+      }
+    ]
+  },
+  "residencial-04.jpeg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 119666,
+    "variants": [
+      {
+        "file": "residencial-04-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 26020
+      },
+      {
+        "file": "residencial-04-1440.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 91908
+      }
+    ]
+  },
+  "residencial-05.jpeg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 180995,
+    "variants": [
+      {
+        "file": "residencial-05-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 49982
+      },
+      {
+        "file": "residencial-05-1440.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 161554
+      }
+    ]
+  },
+  "social-01.jpeg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 95570,
+    "variants": [
+      {
+        "file": "social-01-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 18714
+      },
+      {
+        "file": "social-01-1440.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 61122
+      }
+    ]
+  },
+  "social-02.jpeg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 173870,
+    "variants": [
+      {
+        "file": "social-02-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 43512
+      },
+      {
+        "file": "social-02-1440.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 153144
+      }
+    ]
+  },
+  "social-03.jpeg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 183455,
+    "variants": [
+      {
+        "file": "social-03-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 44766
+      },
+      {
+        "file": "social-03-1440.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 162124
+      }
+    ]
+  }
+}
